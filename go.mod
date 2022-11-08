@@ -1,3 +1,3 @@
-module github.com/Phantom24-hub/hangman
+module hangman
 
 go 1.12
