@@ -1,5 +1,3 @@
-module hangman
-
-replace github.com/Phantom24-hub/hangman => hangman
+module github.com/Phantom24-hub/hangman
 
 go 1.12
