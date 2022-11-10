@@ -19,7 +19,7 @@ const cmdClear = "\033[H\033[2J"
 var conclusion bool
 
 func LetterChoose() string { //func that return a string contane what user write in terminal
-	fmt.Print("choose a letter :")
+	//fmt.Print("choose a letter :")
 	reader := bufio.NewReader(os.Stdin)    // create a stdin to get what player enter
 	text, error := reader.ReadString('\n') // the char '\n' break the stdin and returne in text what player said
 
@@ -64,13 +64,13 @@ func AlreadySaid(choosenLetter string, wordSaid string) string {
 	}
 
 	if err {
-		fmt.Println(string(colorRed), "You entered an invalid letter", string(colorReset)) // if there is other char than  letters print err message
+		//fmt.Println(string(colorRed), "You entered an invalid letter", string(colorReset)) // if there is other char than  letters print err message
 	}
 
 	said = strings.Split(wordSaid, "\n") //split by char '\n'
 
 	wordString := strings.Join(said, " ")
-	fmt.Println("Already tried :", wordString)
+	//fmt.Println("Already tried :", wordString)
 
 	return wordSaid
 }
@@ -95,39 +95,39 @@ func VerifeChar(wordToFind string, wordUncomplet string) string {
 	attempts := 11 // number of attempts + 1 for the start
 	var wordSaid string
 	wordInProgresse := wordUncomplet
-	fmt.Println(AsciiArt(wordUncomplet))
+	//fmt.Println(AsciiArt(wordUncomplet))
 	for attempts > 1 { //While the user have more than 1 attempts
 		choosenLetter := LetterChoose() //call the function LetterChoose
-		fmt.Println()
+		//fmt.Println()
 
 		wordSaid = AlreadySaid(choosenLetter, wordSaid) //list of the word already choose
 		choosenLetter = strings.Replace(choosenLetter, "\n", "", -1)
 		wordInProgresse = Reveal(wordToFind, wordInProgresse, choosenLetter) 
-		fmt.Println(AsciiArt(wordInProgresse)) //reveal the letter choose if in the word
-		fmt.Println()
+		//fmt.Println(AsciiArt(wordInProgresse)) //reveal the letter choose if in the word
+		//fmt.Println()
 
 		if !IsSaid(wordSaid, choosenLetter) {
 
 			if IsPresent(wordToFind, choosenLetter) {
 				Position(attempts) //print the hangman
-				fmt.Println(string(colorGreen), "__________________________________________", string(colorReset))//graphic feature
+				//fmt.Println(string(colorGreen), "__________________________________________", string(colorReset))//graphic feature
 
 			} else {
 				attempts--
 				Position(attempts)
-				fmt.Println(string(colorRed), "__________________________________________", string(colorReset))
+				//fmt.Println(string(colorRed), "__________________________________________", string(colorReset))
 			}
 			wordSaid = wordSaid + choosenLetter + "\n"
 		} else {
-			fmt.Println(string(colorRed), "You already choose this letter", string(colorReset))
+			//fmt.Println(string(colorRed), "You already choose this letter", string(colorReset))
 			attempts--
 			Position(attempts)
-			fmt.Println(string(colorRed), "__________________________________________", string(colorReset))
+			//fmt.Println(string(colorRed), "__________________________________________", string(colorReset))
 		}
 
-		fmt.Println()
-		fmt.Println("remaining try :", attempts-1)
-		fmt.Println("\n\n") //graphic feature
+		//fmt.Println()
+		//fmt.Println("remaining try :", attempts-1)
+		//fmt.Println("\n\n") //graphic feature
 		if wordInProgresse == wordToFind { //allows to propose a whole word
 			return WinOrLoose(attempts, wordToFind)
 		}
