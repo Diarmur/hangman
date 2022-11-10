@@ -67,9 +67,9 @@ func AlreadySaid(choosenLetter string, wordSaid string) string {
 		//fmt.Println(string(colorRed), "You entered an invalid letter", string(colorReset)) // if there is other char than  letters print err message
 	}
 
-	said = strings.Split(wordSaid, "\n") //split by char '\n'
+	//said = strings.Split(wordSaid, "\n") //split by char '\n'
 
-	wordString := strings.Join(said, " ")
+	//wordString := strings.Join(said, " ")
 	//fmt.Println("Already tried :", wordString)
 
 	return wordSaid
