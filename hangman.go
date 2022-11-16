@@ -55,6 +55,17 @@ func IsPresent(wordToFind string, choosenLetter string) bool { // func returne t
 	return false
 }
 
+func OnlyLetter(choosenLetter string) bool {
+	err := false
+	
+	letter := strings.Replace(choosenLetter, "\n", "", -1)
+	if letter < "a" || letter > "z" {
+		err = true
+	}
+
+	return err
+}
+
 func AlreadySaid(choosenLetter string, wordSaid string) string {
 	err := false
 	//var said []string
