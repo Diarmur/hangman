@@ -56,11 +56,11 @@ func IsPresent(wordToFind string, choosenLetter string) bool { // func returne t
 }
 
 func OnlyLetter(choosenLetter string) bool {
-	err := false
+	err := true
 	
 	letter := strings.Replace(choosenLetter, "\n", "", -1)
 	if letter < "a" || letter > "z" {
-		err = true
+		err = false
 	}
 
 	return err
