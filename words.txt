@@ -40,4 +40,3 @@ vélo
 livre
 plante
 papier
-pédale
